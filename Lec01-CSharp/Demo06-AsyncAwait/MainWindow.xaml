@@ -1,0 +1,22 @@
+﻿<Window x:Class="Demo06_AsyncAwait.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demo06_AsyncAwait"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800">
+    <StackPanel Margin="10">
+        <Button Margin="10" x:Name="RightWayButton" HorizontalContentAlignment="Center" Padding="10" Width="300" FontSize="25" Click="AsyncTaskButtonClicked">Load (async)</Button>
+        <Button Margin="10"  x:Name="WrongWayButton" HorizontalContentAlignment="Center" Padding="10" Width="300"   FontSize="25" Click="SyncTaskButtonClicked">Load (sync)</Button>
+        <Button Margin="10"  x:Name="ClearButton" HorizontalContentAlignment="Center" Padding="10" Width="300"   FontSize="25" Click="ClearButton_OnClick">Clear</Button>
+
+        <StackPanel  x:Name="LoadingAnimation" Visibility="Hidden">
+            <Image Width="600"
+                   gif:ImageBehavior.AnimatedSource="loading.gif" Margin="0,0,0,12" />
+            <TextBlock HorizontalAlignment="Center" FontSize="25">Fetching students, please wait...</TextBlock>
+        </StackPanel>
+        <TextBlock  TextWrapping="Wrap" FontWeight="Bold" Padding="20, 20,20,20"  x:Name="TextBlock" FontSize="30" Foreground="Red" ></TextBlock>
+    </StackPanel>
+</Window>
