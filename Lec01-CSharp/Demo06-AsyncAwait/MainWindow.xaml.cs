@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -63,6 +64,19 @@ namespace Demo06_AsyncAwait
             SetLoadingOff();
         }
 
+        private async void GoogleButtonClicked(object sender, RoutedEventArgs e)
+        {
+            SetLoadingOn();
+            using (var httpClient = new HttpClient())
+            {
+                // Long running methods in .NET, such as internet access, database access, hard drive access etc.
+                // usually come with asynchronous interface. 
+                var googlePageString = await httpClient.GetStringAsync("https://www.google.com");
+                TextBlock.Text = googlePageString;
+            }
+            SetLoadingOff();
+        }
+
         private void ClearButton_OnClick(object sender, RoutedEventArgs e)
         {
             TextBlock.Text = string.Empty;
@@ -89,17 +103,20 @@ namespace Demo06_AsyncAwait
             RightWayButton.IsEnabled = false;
             WrongWayButton.IsEnabled = false;
             ClearButton.IsEnabled = false;
-
+            GoogleButton.IsEnabled = false;
         }
 
         private void SetLoadingOff()
         {
-            LoadingAnimation.Visibility = Visibility.Hidden;
+            LoadingAnimation.Visibility = Visibility.Collapsed;
             RightWayButton.IsEnabled = true;
             WrongWayButton.IsEnabled = true;
             ClearButton.IsEnabled = true;
+            GoogleButton.IsEnabled = true;
+
         }
 
-     
+
+
     }
 }

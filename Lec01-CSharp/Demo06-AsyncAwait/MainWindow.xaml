@@ -6,17 +6,22 @@
         xmlns:local="clr-namespace:Demo06_AsyncAwait"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="800">
+        Title="MainWindow" Height="1000" Width="800">
     <StackPanel Margin="10">
-        <Button Margin="10" x:Name="RightWayButton" HorizontalContentAlignment="Center" Padding="10" Width="300" FontSize="25" Click="AsyncTaskButtonClicked">Load (async)</Button>
-        <Button Margin="10"  x:Name="WrongWayButton" HorizontalContentAlignment="Center" Padding="10" Width="300"   FontSize="25" Click="SyncTaskButtonClicked">Load (sync)</Button>
+        <Button Margin="10" x:Name="RightWayButton" HorizontalContentAlignment="Center" Padding="10"   FontSize="25" Click="AsyncTaskButtonClicked">
+            Load students (5 sec, right way)
+        </Button>
+        <Button Margin="10"  x:Name="WrongWayButton" HorizontalContentAlignment="Center" Padding="10"  FontSize="25" Click="SyncTaskButtonClicked">
+            Load students (5 sec, wrong way)
+        </Button>
+        <Button Margin="10"  x:Name="GoogleButton" HorizontalContentAlignment="Center" Padding="10"  FontSize="25" Click="GoogleButtonClicked">Download a web page (www.google.com)</Button>
         <Button Margin="10"  x:Name="ClearButton" HorizontalContentAlignment="Center" Padding="10" Width="300"   FontSize="25" Click="ClearButton_OnClick">Clear</Button>
 
-        <StackPanel  x:Name="LoadingAnimation" Visibility="Hidden">
+        <StackPanel  x:Name="LoadingAnimation" Visibility="Collapsed">
             <Image Width="600"
                    gif:ImageBehavior.AnimatedSource="loading.gif" Margin="0,0,0,12" />
-            <TextBlock HorizontalAlignment="Center" FontSize="25">Fetching students, please wait...</TextBlock>
+            <TextBlock HorizontalAlignment="Center" FontSize="25">Loading, please wait...</TextBlock>
         </StackPanel>
-        <TextBlock  TextWrapping="Wrap" FontWeight="Bold" Padding="20, 20,20,20"  x:Name="TextBlock" FontSize="30" Foreground="Red" ></TextBlock>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"  TextWrapping="Wrap" FontWeight="Bold" Padding="20, 20,20,20"  x:Name="TextBlock" FontSize="30"></TextBlock>
     </StackPanel>
 </Window>
