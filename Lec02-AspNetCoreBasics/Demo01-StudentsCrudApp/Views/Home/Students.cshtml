@@ -1,0 +1,23 @@
+﻿@using Demo01_StudentsCrudApp.Core
+@model List<Demo01_StudentsCrudApp.Core.Student>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+    <div>
+        <a asp-action="AddStudent">Add new student</a>
+
+        @foreach (var student in Model)
+        {
+            <h1>
+                Jmbag: @student.Jmbag <a asp-controller="Home" asp-action="Student" asp-route-jmbag="@student.Jmbag">više...</a>
+            </h1>
+        }
+        <br />
+    </div>
+</body>
+</html>
