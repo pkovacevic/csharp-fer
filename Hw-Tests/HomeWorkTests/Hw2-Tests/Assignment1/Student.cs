@@ -11,20 +11,6 @@
             Name = name;
             Jmbag = jmbag;
         }
-
-        public override bool Equals(object obj)
-        {
-            if (obj is Student)
-            {
-                return (obj as Student).Jmbag == Jmbag;
-            }
-            return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return Jmbag.GetHashCode();
-        }
     }
 
     public enum Gender
