@@ -7,7 +7,8 @@ namespace Hw2_Tests.Assignment1
     [TestClass]
     public class AssignmentTests
     {
-        void Case1_4points()
+        [TestMethod]
+        public void Case1_4points()
         {
             var topStudents = new List<Student>()
             {
@@ -19,7 +20,8 @@ namespace Hw2_Tests.Assignment1
             Assert.IsTrue(topStudents.Contains(ivan));
         }
 
-        void Case2_4points()
+        [TestMethod]
+        public void Case2_4points()
         {
             var list = new List<Student>()
             {
@@ -29,8 +31,9 @@ namespace Hw2_Tests.Assignment1
             var distinctStudentsCount = list.Distinct().Count();
             Assert.AreEqual(1, distinctStudentsCount);
         }
-        
-        void Case3_2points()
+
+        [TestMethod]
+        public void Case3_2points()
         {
             var topStudents = new List<Student>()
             {
