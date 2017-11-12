@@ -1,0 +1,20 @@
+﻿@using Demo01_StudentsCrudApp.Core
+@model Demo01_StudentsCrudApp.Core.Student
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Add student</title>
+</head>
+<body>
+<div>
+    <form asp-action="AddStudent" method="post">
+        First name: <input asp-for="FirstName" /> <span asp-validation-for="FirstName"></span> <br/> 
+        Last name: <input asp-for="LastName" /> <span asp-validation-for="LastName"></span> <br /> 
+        Jmbag: <input asp-for="Jmbag" /> <span asp-validation-for="Jmbag"></span> <br />
+        <input type="submit"/>
+    </form>
+</div>
+</body>
+</html>
