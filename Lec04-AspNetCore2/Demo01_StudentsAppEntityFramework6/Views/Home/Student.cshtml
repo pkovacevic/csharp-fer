@@ -1,0 +1,19 @@
+﻿@using Demo01_StudentsAppEntityFramework6.Core
+@model Demo01_StudentsAppEntityFramework6.Core.Student
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Student | @Model.FirstName</title>
+</head>
+<body>
+<div>
+    <h1>@Model.FirstName @Model.LastName</h1>
+    <div>Jmbag: @Model.Jmbag</div>
+    
+    <br/>
+    <a asp-controller="Home" asp-action="Students">Go back</a>
+</div>
+</body>
+</html>
