@@ -23,3 +23,7 @@ Web Application (Model-View-Controller)
 1.4 Put two links that look like a button on home page.
 
 1.5 Add links to navigation bar.
+
+#### 2 Manage students
+
+2.1 Add student controller and placeholder page. Make sure that controller and view are wired up nicely.
