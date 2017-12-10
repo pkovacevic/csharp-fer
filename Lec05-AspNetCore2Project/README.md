@@ -27,3 +27,5 @@ Web Application (Model-View-Controller)
 #### 2 Manage students
 
 2.1 Add student controller and placeholder page. Make sure that controller and view are wired up nicely.
+
+2.2 Hook up Entity Framework 6.
