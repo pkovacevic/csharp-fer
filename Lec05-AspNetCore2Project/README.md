@@ -6,7 +6,6 @@ Web application for managing students and courses.
 
 1.1.1 New Project -> Installed -> Visual C# -> .NET Core - ASP.NET Core Web Application
 **Make sure** `.NET Framework 4.7` is targeted.
-
 1.1.2 
 **Make sure** `.NET Framework` is selected in first list. 
 1.1.3
@@ -14,3 +13,4 @@ Second drop down should be `ASP.NET Core 2.0` which is somewhat confusing.
 1.1.4
 Web Application (Model-View-Controller)
 
+1.2 Remove production CSS and JS. It's confusing for now.
