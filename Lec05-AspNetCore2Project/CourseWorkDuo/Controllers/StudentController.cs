@@ -8,6 +8,7 @@ using CourseWorkDuo.Models;
 using CourseWorkDuo.Entities.Db;
 using System.Data.Entity;
 using CourseWorkDuo.Entities;
+using CourseWorkDuo.ViewModels;
 
 namespace CourseWorkDuo.Controllers
 {
@@ -29,9 +30,10 @@ namespace CourseWorkDuo.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            Student student = await _dbContext.Students.SingleAsync(x => x.Id == id);
+            Student studentEntity = await _dbContext.Students.SingleAsync(x => x.Id == id);
+            StudentVm studentVm = StudentVm.FromEntity(studentEntity);
 
-            return View(student);
+            return View(studentVm);
         }
 
         public IActionResult Tinker()

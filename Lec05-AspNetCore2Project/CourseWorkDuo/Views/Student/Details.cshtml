@@ -1,4 +1,4 @@
-﻿@model CourseWorkDuo.Entities.Student
+﻿@model StudentVm
 @{
     ViewBag.Title = "Student Details";
 }
@@ -16,6 +16,11 @@
 <div class="form-group">
     <label asp-for="StudentCode"></label>
     <p>@Model.StudentCode</p>
+</div>
+<div class="form-group">
+    @*GenderValue has display attribute that sets human friendly text.*@
+    <label asp-for="GenderValue"></label>
+    <p>@Model.GenderText</p>
 </div>
 <div>
     <a class="btn btn-default" asp-action="Index" title="Back to list">List</a>

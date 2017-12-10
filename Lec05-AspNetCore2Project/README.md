@@ -39,3 +39,5 @@ Web Application (Model-View-Controller)
 2.4 Create student list view.
 
 2.5 Show student details.
+
+2.6 Show student gender.
