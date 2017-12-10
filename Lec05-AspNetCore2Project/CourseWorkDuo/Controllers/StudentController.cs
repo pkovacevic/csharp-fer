@@ -27,6 +27,13 @@ namespace CourseWorkDuo.Controllers
             return View(students);
         }
 
+        public async Task<IActionResult> Details(int id)
+        {
+            Student student = await _dbContext.Students.SingleAsync(x => x.Id == id);
+
+            return View(student);
+        }
+
         public IActionResult Tinker()
         {
             _dbContext.Database.Delete();
