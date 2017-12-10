@@ -1,5 +1,4 @@
-﻿using CourseWorkDuo.Entities;
-using System;
+﻿using System;
 using Tynamix.ObjectFiller;
 
 namespace CourseWorkDuo.Entities.Db.Seed

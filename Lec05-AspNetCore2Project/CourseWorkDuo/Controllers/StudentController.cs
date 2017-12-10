@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using CourseWorkDuo.Models;
-using CourseWorkDuo.Entities.Db;
-using System.Data.Entity;
-using CourseWorkDuo.Entities;
 using CourseWorkDuo.ViewModels;
 using CourseWorkDuo.Repositories;
 

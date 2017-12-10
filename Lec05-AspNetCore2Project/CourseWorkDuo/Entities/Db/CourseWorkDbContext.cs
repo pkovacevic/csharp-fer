@@ -1,13 +1,9 @@
 ﻿using CourseWorkDuo.Entities.Db.Seed;
 using Microsoft.AspNetCore.Hosting;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CourseWorkDuo.Entities.Db
 {
