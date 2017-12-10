@@ -35,3 +35,5 @@ Web Application (Model-View-Controller)
 2.3.1 Install Tynamix.ObjectFiller from NuGet
 
 2.3.2 Use test method on student controller to get number of students in a database. Idea is to check if students really exist in Students table in the database.
+
+2.4 Create student list view.

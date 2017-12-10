@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CourseWorkDuo.Models;
 using CourseWorkDuo.Entities.Db;
+using System.Data.Entity;
+using CourseWorkDuo.Entities;
 
 namespace CourseWorkDuo.Controllers
 {
@@ -18,9 +20,11 @@ namespace CourseWorkDuo.Controllers
             _dbContext = dbContext;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            IList<Student> students = await _dbContext.Students.ToListAsync();
+
+            return View(students);
         }
 
         public IActionResult Tinker()

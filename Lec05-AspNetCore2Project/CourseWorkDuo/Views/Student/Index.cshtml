@@ -1,6 +1,35 @@
-﻿@{
+﻿@model IList<CourseWorkDuo.Entities.Student>
+@{
     ViewBag.Title = "Students";
 }
 
-<h2>Students</h2>
-    
+<h1>@ViewBag.Title</h1>
+
+<div class="row">
+    <a class="btn btn-success" asp-action="Create" role="button"><i class="glyphicon glyphicon-plus"></i> Add</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Student Code</th>
+                <th>Course Count</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.StudentCode</td>
+                    <td class="text-right">
+                        <a class="btn btn-default btn-sm" asp-action="Details" asp-route-id="@student.Id" title="Student details"><i class="glyphicon glyphicon-info-sign"></i></a>
+                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@student.Id" title="Edit student"><i class="glyphicon glyphicon-pencil"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
