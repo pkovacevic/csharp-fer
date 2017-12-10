@@ -14,3 +14,5 @@ Second drop down should be `ASP.NET Core 2.0` which is somewhat confusing.
 Web Application (Model-View-Controller)
 
 1.2 Remove production CSS and JS. It's confusing for now.
+
+1.3. Remove contact and about pages. It makes to much noise.
