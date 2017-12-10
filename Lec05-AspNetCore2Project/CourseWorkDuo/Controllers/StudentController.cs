@@ -25,10 +25,12 @@ namespace CourseWorkDuo.Controllers
 
         public IActionResult Tinker()
         {
+            _dbContext.Database.Delete();
+
             // Test database access. 
-            var val = _dbContext.Database.SqlQuery<int>("select 1").ToList().First();
+            var val = _dbContext.Students.Count();
  
-            // 1 should be displayed on screen at url: Student/Monkey
+            // 1 should be displayed on screen at url: Student/Tinker
             return Content(val.ToString());
         }
     }

@@ -29,3 +29,9 @@ Web Application (Model-View-Controller)
 2.1 Add student controller and placeholder page. Make sure that controller and view are wired up nicely.
 
 2.2 Hook up Entity Framework 6.
+
+2.3 Seed students to the database.
+
+2.3.1 Install Tynamix.ObjectFiller from NuGet
+
+2.3.2 Use test method on student controller to get number of students in a database. Idea is to check if students really exist in Students table in the database.
