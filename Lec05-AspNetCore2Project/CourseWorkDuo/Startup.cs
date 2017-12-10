@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using CourseWorkDuo.Entities.Db;
+using CourseWorkDuo.Repositories;
 
 namespace CourseWorkDuo
 {
@@ -32,6 +33,8 @@ namespace CourseWorkDuo
                     x.GetService<IHostingEnvironment>()
                 );
             });
+
+            services.AddTransient<IStudentRepository, StudentRepository>();
 
             services.AddMvc();
         }

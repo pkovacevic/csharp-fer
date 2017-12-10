@@ -9,42 +9,32 @@ using CourseWorkDuo.Entities.Db;
 using System.Data.Entity;
 using CourseWorkDuo.Entities;
 using CourseWorkDuo.ViewModels;
+using CourseWorkDuo.Repositories;
 
 namespace CourseWorkDuo.Controllers
 {
     public class StudentController : Controller
     {
-        private readonly CourseWorkDbContext _dbContext;
+        private readonly IStudentRepository _studentRepo;
 
-        public StudentController(CourseWorkDbContext dbContext)
+        public StudentController(IStudentRepository studentRepo)
         {
-            _dbContext = dbContext;
+            _studentRepo = studentRepo;
         }
 
         public async Task<IActionResult> Index()
         {
-            IList<Student> students = await _dbContext.Students.ToListAsync();
+            IList<StudentVm> students = await _studentRepo.GetStudentList();
 
             return View(students);
         }
 
         public async Task<IActionResult> Details(int id)
         {
-            Student studentEntity = await _dbContext.Students.SingleAsync(x => x.Id == id);
-            StudentVm studentVm = StudentVm.FromEntity(studentEntity);
+            StudentVm student = await _studentRepo.Details(id);
 
-            return View(studentVm);
+            return View(student);
         }
 
-        public IActionResult Tinker()
-        {
-            _dbContext.Database.Delete();
-
-            // Test database access. 
-            var val = _dbContext.Students.Count();
- 
-            // 1 should be displayed on screen at url: Student/Tinker
-            return Content(val.ToString());
-        }
     }
 }

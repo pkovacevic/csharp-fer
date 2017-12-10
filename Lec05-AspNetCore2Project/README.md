@@ -41,3 +41,5 @@ Web Application (Model-View-Controller)
 2.5 Show student details.
 
 2.6 Show student gender.
+
+2.7 Refactor to repository.
