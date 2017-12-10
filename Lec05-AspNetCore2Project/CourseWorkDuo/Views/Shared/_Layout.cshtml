@@ -30,6 +30,9 @@
         </div>
     </nav>
     <div class="container body-content">
+        <section>
+            @await Html.PartialAsync("UiMessagePartial")
+        </section>
         @RenderBody()
         <hr />
         <footer>

@@ -29,5 +29,13 @@ namespace CourseWorkDuo.Controllers
             return View(student);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Remove(int id)
+        {
+            await _studentRepo.Remove(id);
+
+            var messageVm = new MessageVm("Student is removed.");
+            return RedirectToAction("Index", messageVm);
+        }
     }
 }

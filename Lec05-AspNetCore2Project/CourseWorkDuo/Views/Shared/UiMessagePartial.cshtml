@@ -1,0 +1,14 @@
+﻿@{
+    var messageVm = MessageVm.ReadFromQueryString(Context.Request.Query);
+}
+
+@if (messageVm.HasValue())
+{
+    <div class="alert alert-success alert-dismissible show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>Success</strong> @messageVm.Msg
+    </div>
+}
+

@@ -32,5 +32,12 @@ namespace CourseWorkDuo.Repositories
 
             return studentVm;
         }
+
+        public async Task Remove(int id)
+        {
+            Student deleteMe = await _dbContext.Students.SingleAsync(x => x.Id == id);
+            _dbContext.Students.Remove(deleteMe);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

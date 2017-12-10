@@ -46,3 +46,4 @@ Web Application (Model-View-Controller)
 
 2.8 Change name and namespace for ErrorViewModel. Remove unused using statements.
 
+2.9 Remove student from database. Confirm action. Write success message.
