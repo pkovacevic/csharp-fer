@@ -55,3 +55,5 @@ Web Application (Model-View-Controller)
 2.12 Enable client side validation.
 
 2.13 Be able to add a student.
+
+2.14 Refactor create and edit student to partial view.
