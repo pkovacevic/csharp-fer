@@ -73,3 +73,9 @@ Web Application (Model-View-Controller)
 4.2 Enable adding student to course. Write nice message to user on success.
 
 4.3 Enable removing student from course. Write nice message to user on success.
+
+
+
+#### 5. Turn tables in searchable grid
+
+5.1 Hook up DataTables to existing tables.
