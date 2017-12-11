@@ -53,6 +53,7 @@ namespace CourseWorkDuo.Controllers
         {
             if (ModelState.IsValid == false)
             {
+                vm.GenderOptions = GetGenderOptions();
                 return View(vm);
             }
 

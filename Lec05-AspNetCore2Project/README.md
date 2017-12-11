@@ -48,4 +48,6 @@ Web Application (Model-View-Controller)
 
 2.9 Remove student from database. Confirm action. Write success message.
 
-2.10 Student editing.
+2.10 Enable student editing.
+
+2.11 Refill gender options on validation error.
