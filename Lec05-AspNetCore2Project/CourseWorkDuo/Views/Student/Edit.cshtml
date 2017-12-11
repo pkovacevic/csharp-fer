@@ -1,0 +1,16 @@
+﻿@model StudentVm
+@{
+    ViewBag.Title = "Edit Student";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<form asp-action="Edit">
+
+    @await Html.PartialAsync("FormInputPartial", Model)
+
+    <div>
+        <a class="btn btn-default" asp-action="Details" asp-route-id="@Model.Id">Cancel</a>
+        <input type="submit" value="Save" class="btn btn-success" />
+    </div>
+</form>

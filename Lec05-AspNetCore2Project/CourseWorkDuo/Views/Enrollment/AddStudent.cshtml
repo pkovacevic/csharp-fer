@@ -1,0 +1,44 @@
+﻿@model CourseVm
+@{
+    ViewBag.Title = "Add Student to Course";
+}
+
+<h2>@Model.Name</h2>
+
+<h3>@ViewBag.Title</h3>
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Student Code</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model.Students)
+            {
+                <tr>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.StudentCode</td>
+                    <td>
+                        <a class="btn btn-success cw-post-link" title="Add student to course">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <form asp-action="AddStudent">
+                                <input type="hidden" name="courseId" value="@Model.Id" />
+                                <input type="hidden" name="studentId" value="@student.Id" />
+                            </form>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        <a class="btn btn-default" asp-action="Index" asp-route-courseId="@Model.Id" title="Back to course students">Back</a>
+    </div>
+</div>

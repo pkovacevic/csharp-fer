@@ -1,0 +1,17 @@
+﻿@model CourseVm
+@{
+    ViewBag.Title = "Course Details";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<div class="form-group">
+    <label asp-for="Name"></label>
+    <p>@Model.Name</p>
+</div>
+<div>
+    <a class="btn btn-default" asp-action="Index" title="Back to list">List</a>
+    <a class="btn btn-default" asp-action="Index" asp-controller="Enrollment" asp-route-courseId="@Model.Id" title="View or edit students">Students</a>
+    <a class="btn btn-warning" disabled title="Edit course">Edit</a>
+    <a class="btn btn-danger" disabled title="Remove course">Remove</a>
+</div>

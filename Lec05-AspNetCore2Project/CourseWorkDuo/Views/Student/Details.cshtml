@@ -1,0 +1,35 @@
+﻿@model StudentVm
+@{
+    ViewBag.Title = "Student Details";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<div class="form-group">
+    <label asp-for="FirstName"></label>
+    <p>@Model.FirstName</p>
+</div>
+<div class="form-group">
+    <label asp-for="LastName"></label>
+    <p>@Model.LastName</p>
+</div>
+<div class="form-group">
+    <label asp-for="StudentCode"></label>
+    <p>@Model.StudentCode</p>
+</div>
+<div class="form-group">
+    @*GenderValue has display attribute that sets human friendly text.*@
+    <label asp-for="GenderValue"></label>
+    <p>@Model.GenderText</p>
+</div>
+<div>
+    <a class="btn btn-default" asp-action="Index" title="Back to list">List</a>
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id" title="Edit student">Edit</a>
+    @*When changing data use POST HTTP request*@
+    <a class="btn btn-danger btn-remove-student cw-post-link" href="#" title="Remove student" data-confirm-text="Are you sure you want to remove the student?">
+        Remove
+        <form asp-action="Remove">
+            <input type="hidden" name="id" value="@Model.Id" />
+        </form>
+    </a>
+</div>
