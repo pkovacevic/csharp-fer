@@ -42,5 +42,17 @@ namespace CourseWorkDuo.Controllers
             // Ex: courseworkduo.edu/Entollment/Index?courseId=42&msg=some_msg.
             return RedirectToAction("Index", new { courseId, messageVm.Msg });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveStudent(int courseId, int studentId)
+        {
+            await _courseRepository.RemoveStudentFromCourse(courseId, studentId);
+
+            var messageVm = new MessageVm("Student is removed from course.");
+
+            // Add courseId and msg to query string.
+            // Ex: courseworkduo.edu/Entollment/Index?courseId=42&msg=some_msg.
+            return RedirectToAction("Index", new { courseId, messageVm.Msg });
+        }
     }
 }
