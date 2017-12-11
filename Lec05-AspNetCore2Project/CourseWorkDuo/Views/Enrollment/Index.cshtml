@@ -1,0 +1,45 @@
+﻿@model CourseVm
+@{
+    ViewBag.Title = "Enrolled Students";
+}
+
+<h2>@Model.Name</h2>
+
+<h3>@ViewBag.Title</h3>
+
+<div class="row">
+    <a class="btn btn-success" asp-action="AddStudent" asp-route-courseId="@Model.Id" role="button"><i class="glyphicon glyphicon-plus"></i> Add</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Student Code</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model.Students)
+            {
+                <tr>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.StudentCode</td>
+                    <td>
+                        <a class="btn btn-danger btn-sm cw-post-link" title="Remove student from course" data-confirm-text="are you sure">
+                            <i class="glyphicon glyphicon-remove"></i>
+                            <form asp-action="RemoveStudent">
+                                <input type="hidden" name="courseId" value="@Model.Id" />
+                                <input type="hidden" name="studentId" value="@student.Id" />
+                            </form>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        <a class="btn btn-default" asp-action="Details" asp-controller="Course" asp-route-id="@Model.Id" title="Back to course">Back</a>
+    </div>
+</div>

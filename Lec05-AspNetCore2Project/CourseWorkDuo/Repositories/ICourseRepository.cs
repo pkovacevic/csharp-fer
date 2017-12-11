@@ -9,5 +9,7 @@ namespace CourseWorkDuo.Repositories
         Task<IEnumerable<CourseVm>> GetAllCourses();
 
         Task<CourseVm> GetCourseById(int id);
+
+        Task<CourseVm> GetCourseWithStudents(int courseId);
     }
 }

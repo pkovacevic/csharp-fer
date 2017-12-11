@@ -10,12 +10,15 @@ namespace CourseWorkDuo.ViewModels
 
         public string Name { get; set; }
 
+        public IList<StudentVm> Students { get; private set; }
+
         public static CourseVm FromEntity(Course entity)
         {
             CourseVm vm = new CourseVm
             {
                 Id = entity.Id,
                 Name = entity.Name,
+                Students = entity.Students.Select(x => StudentVm.FromEntity(x)).ToList(),
             };
             return vm;
         }

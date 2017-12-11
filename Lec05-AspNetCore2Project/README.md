@@ -58,6 +58,14 @@ Web Application (Model-View-Controller)
 
 2.14 Refactor create and edit student to partial view.
 
+
+
 #### 3. Manage courses
 
 3.1 Seed database with courses. Show list and course details.
+
+
+
+#### 4. Enroll students to a course
+
+4.1 Seed database with course enrollments. Show list of students enrolled in a course.

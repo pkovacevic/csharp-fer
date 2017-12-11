@@ -85,5 +85,6 @@ namespace CourseWorkDuo.Repositories
             courseEntity.Students.Remove(studentEntity);
             await _dbContext.SaveChangesAsync();
         }
+
     }
 }
