@@ -8,8 +8,9 @@ namespace CourseWorkDuo.Repositories
     {
         Task<IList<StudentVm>> GetStudentList();
 
-        Task<StudentVm> Details(int id);
+        Task<StudentVm> GetSudentById(int id);
 
         Task Remove(int id);
+        Task Edit(StudentVm vm);
     }
 }

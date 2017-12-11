@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CourseWorkDuo.ViewModels;
 using CourseWorkDuo.Repositories;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 
 namespace CourseWorkDuo.Controllers
 {
@@ -24,7 +26,7 @@ namespace CourseWorkDuo.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            StudentVm student = await _studentRepo.Details(id);
+            StudentVm student = await _studentRepo.GetSudentById(id);
 
             return View(student);
         }
@@ -36,6 +38,35 @@ namespace CourseWorkDuo.Controllers
 
             var messageVm = new MessageVm("Student is removed.");
             return RedirectToAction("Index", messageVm);
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            StudentVm studentVm = await _studentRepo.GetSudentById(id);
+            studentVm.GenderOptions = GetGenderOptions();
+
+            return View(studentVm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(StudentVm vm)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return View(vm);
+            }
+
+            await _studentRepo.Edit(vm);
+
+            return RedirectToAction(nameof(Details), new { id = vm.Id });
+        }
+
+        private static IList<SelectListItem> GetGenderOptions()
+        {
+            IList<SelectListItem> options = StudentVm.GetGenderOptions().
+                Select(x => new SelectListItem { Text = x.Value, Value = x.Key }).
+                ToList();
+            return options;
         }
     }
 }

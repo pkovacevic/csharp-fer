@@ -1,0 +1,46 @@
+﻿@model StudentVm
+@{
+    ViewBag.Title = "Edit Student";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<form asp-action="Edit">
+
+    @if (ViewContext.ViewData.ModelState.IsValid == false)
+    {
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                There were some input errors.
+            </div>
+            <div class="panel-body">
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input class="form-control" asp-for="FirstName" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input class="form-control" asp-for="LastName" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="StudentCode"></label>
+        <input class="form-control" asp-for="StudentCode" />
+        <span asp-validation-for="StudentCode" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="GenderValue"></label>
+        <select class="form-control" asp-for="GenderValue" asp-items="@Model.GenderOptions"></select>
+        <span asp-validation-for="GenderValue" class="text-danger"></span>
+    </div>
+
+    <div>
+        <a class="btn btn-default" asp-action="Details" asp-route-id="@Model.Id">Cancel</a>
+        <input type="submit" value="Save" class="btn btn-success" />
+    </div>
+</form>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CourseWorkDuo.ViewModels
 {
@@ -29,12 +30,19 @@ namespace CourseWorkDuo.ViewModels
         [Display(Name = "Gender")]
         public string GenderValue { get; set; }
 
+        public IList<SelectListItem> GenderOptions { get; internal set; }
+
         public string GenderText
         {
             get
             {
                 return GetGenderText(GenderValue);
             }
+        }
+
+        public StudentVm()
+        {
+            GenderOptions = new List<SelectListItem>();
         }
 
         public static string GetGenderText(string genderValue)
@@ -50,7 +58,7 @@ namespace CourseWorkDuo.ViewModels
             return text;
         }
 
-        public static IEnumerable<KeyValuePair<string, string>> GetGenderOptions()
+        public static IList<KeyValuePair<string, string>> GetGenderOptions()
         {
             var optionItems = new List<KeyValuePair<string, string>>
             {

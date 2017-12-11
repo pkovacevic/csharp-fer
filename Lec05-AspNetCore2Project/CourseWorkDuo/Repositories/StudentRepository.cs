@@ -1,6 +1,7 @@
 ﻿using CourseWorkDuo.Entities;
 using CourseWorkDuo.Entities.Db;
 using CourseWorkDuo.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -17,6 +18,19 @@ namespace CourseWorkDuo.Repositories
             _dbContext = dbContext;
         }
 
+        public async Task Edit(StudentVm vm)
+        {
+            Student trackedEntity = await _dbContext.Students.SingleAsync(x => x.Id == vm.Id);
+
+            trackedEntity.FirstName = vm.FirstName;
+            trackedEntity.LastName = vm.LastName;
+            trackedEntity.StudentCode = vm.StudentCode;
+            trackedEntity.Gender = vm.GenderValue;
+            trackedEntity.UpdatedAt = DateTime.UtcNow;
+
+            await _dbContext.SaveChangesAsync();
+        }
+
         public async Task<IList<StudentVm>> GetStudentList()
         {
             IList<Student> studentEntities = await _dbContext.Students.ToListAsync();
@@ -25,7 +39,7 @@ namespace CourseWorkDuo.Repositories
             return studentVms;
         }
 
-        public async Task<StudentVm> Details(int id)
+        public async Task<StudentVm> GetSudentById(int id)
         {
             Student studentEntity = await _dbContext.Students.SingleAsync(x => x.Id == id);
             StudentVm studentVm = StudentVm.FromEntity(studentEntity);
