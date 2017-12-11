@@ -11,6 +11,9 @@ namespace CourseWorkDuo.Repositories
         Task<StudentVm> GetSudentById(int id);
 
         Task Remove(int id);
+
         Task Edit(StudentVm vm);
+
+        Task<int> Create(StudentVm vm);
     }
 }

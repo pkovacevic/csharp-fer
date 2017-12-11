@@ -53,5 +53,25 @@ namespace CourseWorkDuo.Repositories
             _dbContext.Students.Remove(deleteMe);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<int> Create(StudentVm vm)
+        {
+            Student createEntity = new Student
+            {
+                Id = vm.Id,
+                FirstName = vm.FirstName,
+                LastName = vm.LastName,
+                StudentCode = vm.StudentCode,
+                Gender = vm.GenderValue,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
+            };
+
+            _dbContext.Students.Add(createEntity);
+            await _dbContext.SaveChangesAsync();
+
+            return createEntity.Id;
+        }
+
     }
 }

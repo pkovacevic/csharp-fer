@@ -62,6 +62,28 @@ namespace CourseWorkDuo.Controllers
             return RedirectToAction(nameof(Details), new { id = vm.Id });
         }
 
+        public IActionResult Create()
+        {
+            var vm = new StudentVm();
+            vm.GenderOptions = GetGenderOptions();
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(StudentVm vm)
+        {
+            if (ModelState.IsValid == false)
+            {
+                vm.GenderOptions = GetGenderOptions();
+                return View(vm);
+            }
+
+            var id = await _studentRepo.Create(vm);
+
+            return RedirectToAction(nameof(Details), new { id });
+        }
+
         private static IList<SelectListItem> GetGenderOptions()
         {
             IList<SelectListItem> options = StudentVm.GetGenderOptions().

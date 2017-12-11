@@ -53,3 +53,5 @@ Web Application (Model-View-Controller)
 2.11 Refill gender options on validation error.
 
 2.12 Enable client side validation.
+
+2.13 Be able to add a student.
