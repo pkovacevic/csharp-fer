@@ -11,6 +11,8 @@ namespace CourseWorkDuo.Entities.Db
     {
         public IDbSet<Student> Students { get; set; }
 
+        public IDbSet<Course> Courses { get; set; }
+
         // Inject hosting environment to check if in development or production environment.
         public CourseWorkDbContext(string connectionString, IHostingEnvironment env) : base(connectionString)
         {
@@ -44,6 +46,8 @@ namespace CourseWorkDuo.Entities.Db
                     )
                 );
             modelBuilder.Entity<Student>().Property(x => x.Gender).IsRequired().HasMaxLength(1);
+
+            modelBuilder.Entity<Course>().Property(x => x.Name).IsRequired().HasMaxLength(255);
         }
     }
 }

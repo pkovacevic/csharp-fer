@@ -57,3 +57,7 @@ Web Application (Model-View-Controller)
 2.13 Be able to add a student.
 
 2.14 Refactor create and edit student to partial view.
+
+#### 3. Manage courses
+
+3.1 Seed database with courses. Show list and course details.

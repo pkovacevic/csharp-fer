@@ -31,6 +31,7 @@ namespace CourseWorkDuo
             });
 
             services.AddTransient<IStudentRepository, StudentRepository>();
+            services.AddTransient<ICourseRepository, CourseRepository>();
 
             services.AddMvc();
         }

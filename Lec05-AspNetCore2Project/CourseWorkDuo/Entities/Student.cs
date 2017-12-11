@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CourseWorkDuo.Entities
 {
@@ -22,5 +23,12 @@ namespace CourseWorkDuo.Entities
         public DateTime CreatedAt { get; set; }
 
         public DateTime? UpdatedAt { get; set; }
+
+        public IList<Course> Courses { get; set; }
+
+        public Student()
+        {
+            Courses = new List<Course>();
+        }
     }
 }
