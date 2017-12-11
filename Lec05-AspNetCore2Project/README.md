@@ -69,3 +69,5 @@ Web Application (Model-View-Controller)
 #### 4. Enroll students to a course
 
 4.1 Seed database with course enrollments. Show list of students enrolled in a course.
+
+4.2 Enable adding student to course. Write nice message to user on success.

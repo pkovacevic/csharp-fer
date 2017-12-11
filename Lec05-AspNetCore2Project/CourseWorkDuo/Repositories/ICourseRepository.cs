@@ -11,5 +11,9 @@ namespace CourseWorkDuo.Repositories
         Task<CourseVm> GetCourseById(int id);
 
         Task<CourseVm> GetCourseWithStudents(int courseId);
+
+        Task<CourseVm> GetCourseWithStudentsToAdd(int courseId);
+
+        Task AddStudentToCourse(int courseId, int studentId);
     }
 }
