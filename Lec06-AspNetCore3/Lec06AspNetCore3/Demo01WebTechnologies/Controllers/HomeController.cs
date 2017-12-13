@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Demo01WebTechnologies.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Demo01WebTechnologies.Controllers
@@ -19,5 +20,19 @@ namespace Demo01WebTechnologies.Controllers
             return View();
         }
 
+        public IActionResult GetStudents()
+        {
+            var students = new List<Student>()
+            {
+                new Student("001231242", "Ivan", "Horvat"),
+                new Student("001231242", "Pero", "Peric"),
+                new Student("001231242", "Martina", "Kovacevic")
+            };
+
+            return new ObjectResult(students);
+        }
+
     }
+
+
 }
